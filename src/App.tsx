@@ -1,44 +1,19 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
-
-const socket = new WebSocket("ws://localhost:8080");
-
-socket.onopen = () => {
-  console.log("WebSocket connection established");
-
-  socket.send("Hello from the client!");
-};
-
-socket.onmessage = (event) => {
-  console.log("Message from server:", event.data);
-};
-
-socket.onerror = (error) => {
-  console.error("WebSocket error:", error);
-};
-
-socket.onclose = () => {
-  console.log("WebSocket connection closed");
-};
+import React, { useState, useEffect } from "react";
+import socket from "./services/websockets";
 
 function App() {
+  let [message, setMessage] = useState("");
+
+  useEffect(() => {
+    return socket(setMessage);
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+        <h1>Real-Time Market Dashboard</h1>
+        <p>{message}</p>
+      </div>
     </div>
   );
 }
