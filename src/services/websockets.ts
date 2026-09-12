@@ -1,9 +1,4 @@
-export type MarketInstrument = {
-    symbol: string;
-    name: string;
-    price: number;
-    changeType: string;
-}
+import { MarketInstrument } from "../types/instruments";
 
 export default function initializeWebSocket(state: (instrument: MarketInstrument) => void) {
     const socket = new WebSocket("ws://localhost:8080");

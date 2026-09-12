@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import socket from "./services/websockets";
-import { MarketInstrument } from "./services/websockets";
+import { MarketInstrument } from "./types/instruments";
 
 function App() {
   let [message, setMessage] = useState<MarketInstrument | null>(null);

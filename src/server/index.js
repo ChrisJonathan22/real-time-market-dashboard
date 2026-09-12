@@ -76,12 +76,12 @@ let index = 0;
             if (randomNumber === 5) {
                 currentMarketObject.price += Math.floor((currentMarketObject.price/100) * 5);
                 currentMarketObject.changeType = "+ 5%";
-            } // If the random number is 1 decrease the price by 5%
-            else if (randomNumber === 1) {
+            }
+            
+            // If the random number is 1 decrease the price by 5%
+            if (randomNumber === 1) {
                 currentMarketObject.price -= Math.floor((currentMarketObject.price/100) * 5);
                 currentMarketObject.changeType = "- 5%";
-            } else {
-              currentMarketObject.changeType = "N/A";
             }
 
             console.log("Current Market Object: ",JSON.stringify(currentMarketObject));
