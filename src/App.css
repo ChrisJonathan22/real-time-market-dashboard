@@ -16,6 +16,10 @@
   grid-template-columns: auto auto auto auto;
 }
 
+.table_row {
+  font-weight: bold;
+}
+
 .table_content {
   background-color: rgb(203, 236, 165);
   padding: 10px;
